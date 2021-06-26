@@ -1,5 +1,6 @@
 <?php 
    //abrir a conexão 
+   include 'navbar.php';
    include 'conexao.php';  
 
    // recupar campos do formulário usando método post
