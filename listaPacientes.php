@@ -1,6 +1,6 @@
 <?php //listapacientes.php
     include 'conexao.php';
-    include 'navbar.php';
+    include 'menu.php';
      $pdo =  Conexao::conectar();
      $sql = "select * from pacientes ";
      $listaPacientes = $pdo->query($sql);
@@ -57,7 +57,10 @@
             <th>Sintomas</th>
             <th>Endereço</th>
             <th>Telefone</th>
-        </tr>
+            <th>EDT</th>
+            <th>RMV</th>
+            </tr>
+            
         <?php
             foreach ($listaPacientes as $pacientes){
         ?>

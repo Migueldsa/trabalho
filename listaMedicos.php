@@ -1,6 +1,6 @@
 <?php //listapacientes.php
     include 'conexao.php';
-    include 'navbar.php';
+    include 'menu.php';
      $pdo =  Conexao::conectar();
      $sql = "select * from medicos ";
      $listaMedicos = $pdo->query($sql);
@@ -56,6 +56,9 @@
             <th>Área De Atuação</th>
             <th>Escala</th>
             <th>Email</th>
+            <th>CRM</th>
+            <th>EDT</th>
+            <th>RMV</th>
         </tr>
         <?php
             foreach ($listaMedicos as $medicos){
@@ -65,15 +68,16 @@
                 <td><?php echo $medicos ['nomeMedico'];?></td>
                 <td><?php echo $medicos ['areaMedico'];?></td>
                 <td><?php echo $medicos ['escalaMedico'];?></td> 
-                <td><?php echo $medicos ['emailMedico'];?></td>  
+                <td><?php echo $medicos ['emailMedico'];?></td>
+                <td><?php echo $medicos ['crmMedico'];?></td>  
                 <td> <a class="btn-floating btn-small waves-effect waves-light green"
-                          onclick="JavaScript:location.href='frmEdtPaciente.php?idPaciente=' +
-                          <?php echo $pacientes['idPaciente'];?>" >
+                          onclick="JavaScript:location.href='frmEdtMedico.php?idMedico=' +
+                          <?php echo $medicos['idMedico'];?>" >
                            <i class="material-icons">edit</i>
                     </td>
                     <td> <a class="btn-floating btn-small waves-effect waves-light red"
-                          onclick="JavaScript:location.href='frmRmvPaciente.php?idPaciente=' +
-                          <?php echo $pacientes['idPaciente'];?>" >
+                          onclick="JavaScript:location.href='frmRmvMedico.php?idMedico=' +
+                          <?php echo $medicos['idMedico'];?>" >
                            <i class="material-icons">delete</i>
                     </td>
         </tr>
