@@ -1,6 +1,6 @@
 <?php //listapacientes.php
     include 'conexao.php';
-    include 'menu.php';
+    include 'navbar.php';
      $pdo =  Conexao::conectar();
      $sql = "select * from pacientes ";
      $listaPacientes = $pdo->query($sql);
@@ -27,8 +27,9 @@
 <div class="container">
    <div class="row">
         <div class="col s12">
-        <h3 class="orange lighten-2 white-text text-dark-3" class="text-orange">
-          Lista pacientes
+        <h3 class=" white-text text-dark-3" class="text-orange">
+        <div class="pacientes" type="button" onclick="JavaScript:location.href='listaPacientes.php'"><img class="img_icon" src="imagens/patient.png" height="100px" width="100px"></div>
+        LISTA DOS PACIENTES
         </h3>
         <a class="btn-floating btn-large waves-effect waves-light green"
                onclick="JavaScript:location.href='frmInsPacientes.php'"><i class="material-icons">add</i></a>
@@ -49,8 +50,8 @@
             </div>
         </div>
              
-        <table class="striped highlight  blue lighten-3 responsive-table">
-            <tr class="light-blue darken-4  grey-text text-lighten-3">    
+        <table class="striped highlight  blue-grey lighten-3 responsive-table">
+            <tr class="blue-grey darken-4  grey-text text-lighten-3">    
             <th>ID </th>
             <th>Nome</th>
             <th>Idade</th>

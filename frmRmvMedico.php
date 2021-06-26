@@ -1,20 +1,20 @@
 <?php 
     include 'navbar.php'; 
-    $idPaciente =trim($_GET['idPaciente']);
+    $idMedico =trim($_GET['idMedico']);
 
     //recuperar os dados no banco de dados
     include 'conexao.php';
     $pdo = Conexao::conectar(); 
     $pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT * FROM pacientes WHERE idPaciente=?;"; 
+    $sql = "SELECT * FROM medicos WHERE idMedico=?;"; 
     $query = $pdo->prepare($sql);
-    $query->execute(array($idPaciente));
-    $pacientes = $query->fetch(PDO::FETCH_ASSOC);
-    $nomePaciente = $pacientes['nomePaciente'];
-    $idadePaciente = $pacientes['idadePaciente'];
-    $sintomaPaciente = $pacientes['sintomasPaciente'];
-    $enderecoPaciente= $pacientes['enderecoPaciente'];
-    $telefonePaciente= $pacientes['telefonePaciente']; 
+    $query->execute(array($idMedico));
+    $medicos = $query->fetch(PDO::FETCH_ASSOC);
+    $nomeMedico = $medicos['nomeMedico'];
+    $areaMedico = $medicos['areaMedico'];
+    $escalaMedico = $medicos['escalaMedico'];
+    $emailMedico = $medicos['emailMedico'];
+    $crmMedico = $medicos['crmMedico'];
     Conexao::desconectar();
 
 ?>
@@ -34,23 +34,23 @@
    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Remoção de Paciente</title>
+    <title>Remoção de Médico</title>
 </head>
 <body>
     <div class="container grey lighten-4 col s12">
         <div class="brown lighten-4 col s12">
-            <h3>Remover Paciente</h3>
+            <h3>Remover Medico</h3>
         </div>
-    <form action="rmvPaciente.php" method="POST" id='frmRmvPaciente' class="col s12">    
+    <form action="rmvMedico.php" method="POST" id='frmRmvMedico' class="col s12">    
         <div class="row">
              <div class="col s10">
-                 <label for ="lblId"><h4><blockquote>ID:  <?php echo $idPaciente?></blockquote></h4></label>
-                 <input type="hidden" id="idPaciente" name="idPaciente" value="<?php echo $idPaciente;?>">
-                 <label for ="lblNome"><H4>NOME: <?php echo $pacientes['nomePaciente'];?></H4></label>
-                 <label for ="lblIdade"><H4>IDADE: <?php echo $pacientes['idadePaciente'];?></H4></label>
-                 <label for ="lblSintomas"><H4>SINTOMAS: <?php echo $pacientes['sintomasPaciente'];?></H4></label>
-                 <label for ="lblEndereco"><H4>ENDEREÇO: <?php echo $pacientes['enderecoPaciente'];?></H4></label>
-                 <label for ="lblTelefone"><H4>NOTA: <?php echo $pacientes['telefonePaciente'];?></H4></label>
+                 <label for ="lblId"><h4><blockquote>ID:  <?php echo $idMedico?></blockquote></h4></label>
+                 <input type="hidden" id="idMedico" name="idMedico" value="<?php echo $idMedico;?>">
+                 <label for ="lblNome"><H4>NOME: <?php echo $medicos['nomeMedico'];?></H4></label>
+                 <label for ="lblArea"><H4>AREA: <?php echo $medicos['areaMedico'];?></H4></label>
+                 <label for ="lblEscala"><H4>ESCALA: <?php echo $medicos['escalaMedico'];?></H4></label>
+                 <label for ="lblEmail"><H4>EMAIL: <?php echo $medicos['emailMedico'];?></H4></label>
+                 <label for ="lblCrm"><H4>CRM: <?php echo $medicos['crmMedico'];?></H4></label>
              </div>
         </div>
             <div class="input-field col s8">
@@ -59,7 +59,7 @@
                </button>
 
               <button class="btn waves-effect waves-light indigo" type="button" name="btnVoltar"
-                onclick="JavaScript:location.href='listaPacientes.php'">
+                onclick="JavaScript:location.href='listaMedicos.php'">
                Voltar <i class="material-icons">arrow_back</i> 
                </button>
             </div>

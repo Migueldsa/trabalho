@@ -1,20 +1,18 @@
 <?php 
     include 'navbar.php'; 
-    $idPaciente =trim($_GET['idPaciente']);
+    $idMedicamento =trim($_GET['idMedicamento']);
 
     //recuperar os dados no banco de dados
     include 'conexao.php';
     $pdo = Conexao::conectar(); 
     $pdo->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT * FROM pacientes WHERE idPaciente=?;"; 
+    $sql = "SELECT * FROM medicamentos WHERE idMedicamento=?;"; 
     $query = $pdo->prepare($sql);
-    $query->execute(array($idPaciente));
-    $pacientes = $query->fetch(PDO::FETCH_ASSOC);
-    $nomePaciente = $pacientes['nomePaciente'];
-    $idadePaciente = $pacientes['idadePaciente'];
-    $sintomaPaciente = $pacientes['sintomasPaciente'];
-    $enderecoPaciente= $pacientes['enderecoPaciente'];
-    $telefonePaciente= $pacientes['telefonePaciente']; 
+    $query->execute(array($idMedicamento));
+    $medicamentos = $query->fetch(PDO::FETCH_ASSOC);
+    $nomeMedicamento = $medicamentos['nomeMedicamento'];
+    $qntdMedicamento = $medicamentos['qntdMedicamento'];
+    $descMedicamento = $medicamentos['descMedicamento'];
     Conexao::desconectar();
 
 ?>
@@ -34,23 +32,21 @@
    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Remoção de Paciente</title>
+    <title>Remoção de Médicamento</title>
 </head>
 <body>
     <div class="container grey lighten-4 col s12">
         <div class="brown lighten-4 col s12">
-            <h3>Remover Paciente</h3>
+            <h3>Remover Medicamento</h3>
         </div>
-    <form action="rmvPaciente.php" method="POST" id='frmRmvPaciente' class="col s12">    
+    <form action="rmvMedicamento.php" method="POST" id='frmRmvMedicamento' class="col s12">    
         <div class="row">
              <div class="col s10">
-                 <label for ="lblId"><h4><blockquote>ID:  <?php echo $idPaciente?></blockquote></h4></label>
-                 <input type="hidden" id="idPaciente" name="idPaciente" value="<?php echo $idPaciente;?>">
-                 <label for ="lblNome"><H4>NOME: <?php echo $pacientes['nomePaciente'];?></H4></label>
-                 <label for ="lblIdade"><H4>IDADE: <?php echo $pacientes['idadePaciente'];?></H4></label>
-                 <label for ="lblSintomas"><H4>SINTOMAS: <?php echo $pacientes['sintomasPaciente'];?></H4></label>
-                 <label for ="lblEndereco"><H4>ENDEREÇO: <?php echo $pacientes['enderecoPaciente'];?></H4></label>
-                 <label for ="lblTelefone"><H4>NOTA: <?php echo $pacientes['telefonePaciente'];?></H4></label>
+                 <label for ="lblId"><h4><blockquote>ID:  <?php echo $idMedicamento?></blockquote></h4></label>
+                 <input type="hidden" id="idMedicamento" name="idMedicamento" value="<?php echo $idMedicamento;?>">
+                 <label for ="lblNome"><H4>NOME: <?php echo $medicamentos['nomeMedicamento'];?></H4></label>
+                 <label for ="lblQntd"><H4>QUANTIDADE: <?php echo $medicamentos['qntdMedicamento'];?></H4></label>
+                 <label for ="lblDesc"><H4>DESCRIÇÃO: <?php echo $medicamentos['descMedicamento'];?></H4></label>
              </div>
         </div>
             <div class="input-field col s8">
@@ -59,7 +55,7 @@
                </button>
 
               <button class="btn waves-effect waves-light indigo" type="button" name="btnVoltar"
-                onclick="JavaScript:location.href='listaPacientes.php'">
+                onclick="JavaScript:location.href='listaMedicamentos.php'">
                Voltar <i class="material-icons">arrow_back</i> 
                </button>
             </div>
