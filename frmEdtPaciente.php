@@ -1,5 +1,5 @@
 <?php //frmEdtPaciente.php
-    include 'menu.php'; 
+    include 'navbar.php'; 
     include 'conexao.php'; 
     //recuperar o id pelo método GET
     $idPaciente =$_GET['idPaciente']; 
