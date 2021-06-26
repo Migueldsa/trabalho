@@ -32,6 +32,7 @@
       </ul>
     </div>
   </nav>
+  
 
   <!-- menu lateral -->
   <ul id="slide-out" class="sidenav">
@@ -40,15 +41,23 @@
       <div class="background">
         <img src="imagens/empresa2.jpeg">
       </div>
-      <a href="#user"><img class="circle" src="imagens/perfil.jpg"></a>
+      <a href="#user"><img class="circle" src="imagens/doctor.png"></a>
       <a href="#name"><span class="yellow-text name">Miguel</span></a>
       <a href="#email"><span class="yellow-text email">jorguindogueto@yahoo.com.br</span></a>
     </div></li>
-    <li><a href="listarCompetidor.php"><i class="material-icons">person</i>Competidores</a></li>
-    <li><a href="#!">Second Link</a></li>
+    <li><a href="listaPacientes.php"><i class="material-icons">person</i>Pacientes</a></li>
+    <li><a href="listaPacientes.php"><i class="material-icons">person</i>Pacientes</a></li>
+    <li><a href="listaPacientes.php"><i class="material-icons">person</i>Pacientes</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a class="subheader">Editar</a></li>
+    <li><a class="waves-effect" href="#!">Pacientes</a></li>
+    <li><a class="waves-effect" href="#!">Médicos</a></li>
+    <li><a class="waves-effect" href="#!">Medicamentos</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Excluir</a></li>
+    <li><a class="waves-effect" href="#!">Pacientes</a></li>
+    <li><a class="waves-effect" href="#!">Médicos</a></li>
+    <li><a class="waves-effect" href="#!">Medicamentos</a></li>
     <!-- </div> -->
   </ul>
   <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
